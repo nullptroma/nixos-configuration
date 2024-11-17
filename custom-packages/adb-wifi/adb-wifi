@@ -1,0 +1,117 @@
+#!/usr/bin/python3
+
+import os
+import re
+import sys
+import time
+import nmap # type: ignore
+import netifaces # type: ignore
+from netaddr import IPNetwork # type: ignore
+import functools
+
+print = functools.partial(print, flush=True)
+PORT = 5555
+
+
+def connectToDevice(ip):
+    # Connect to an android device
+    result = os.popen("adb connect " + ip + ":" + str(PORT)).read()
+    if result.find("connected") != -1:
+        return True
+    else:
+        return False
+
+
+def getDecidesIDs(adbDevices):
+    # Get all device IDs connected in an USB port
+    return re.findall('(.*?)\tdevice', adbDevices)
+
+
+def getIPfromDeviceID(deviceID):
+    # Find ip from the device connect in USB port
+    return os.popen("adb -s " + deviceID + " shell ip route | grep wlan0 | awk {\'if( NF >=9){print $9;}\'}").read().rstrip()
+
+
+def verifyIfNotConnected(adbDevices, ip):
+    # Verify if the device is already connected (wifi)
+    return adbDevices.find(ip) == -1
+
+
+def netmask_to_cidr(netmask):
+    # Преобразуем маску подсети в список байт
+    netmask_bytes = list(map(int, netmask.split('.')))
+
+    # Преобразуем каждый байт в бинарную строку и суммируем количество установленных бит
+    cidr = sum(bin(byte).count('1') for byte in netmask_bytes)
+
+    return cidr
+
+def getConnectedNetworks():
+    # Получаем список всех сетевых интерфейсов
+    interfaces = netifaces.interfaces()
+
+    # Создаем массив для хранения адресов и масок подсетей
+    addresses = []
+
+    for interface in interfaces:
+        # Получаем информацию о сетевом интерфейсе
+        addrs = netifaces.ifaddresses(interface)
+
+        # Проверяем, есть ли у интерфейса информация об адресах IPv4
+        if netifaces.AF_INET in addrs:
+            # Получаем адрес и маску подсети
+            addr_info = addrs[netifaces.AF_INET][0]
+            ip_address = addr_info['addr']
+            netmask = addr_info['netmask']
+
+            # Преобразуем маску подсети в число бит
+            cidr = netmask_to_cidr(netmask)
+
+            # Формируем строку с адресом и маской подсети
+            address_string = f"{ip_address}/{cidr}"
+
+            # Добавляем строку в массив
+            if cidr >= 24 and ip_address.startswith('172.19.0.1')==False:
+                addresses.append(address_string)
+
+    return addresses
+
+
+def getNetworkDevices():
+    devices = []
+    networks = getConnectedNetworks()
+    print("Networks:", networks)
+    for network in networks:
+        print("Network:", network)
+        nm = nmap.PortScanner()
+        nm.scan(hosts=network, arguments='-p 5555 --open')
+        open_hosts = [host for host in nm.all_hosts() if nm[host]['tcp'][5555]['state'] == 'open']
+
+        devices.extend(open_hosts)
+    return devices
+
+
+nm = nmap.PortScanner()
+
+while True:
+    print("Scanning...")
+    devices = getNetworkDevices()
+    print("devices ", devices)
+    adbDevices = os.popen("adb devices").read()
+
+    for deviceID in getDecidesIDs(adbDevices):
+        ip = getIPfromDeviceID(deviceID)
+        if(ip != "" and ip not in devices and verifyIfNotConnected(adbDevices, ip)):
+            os.popen("adb -s " + deviceID + " tcpip " + str(PORT))
+            print("PORT 5555 open for " + ip)
+
+    devicesToConnect = [ip for ip in devices if ip not in adbDevices]
+
+    for ip in devicesToConnect:
+        print("Detected new device to connect: " + ip)
+        if (connectToDevice(ip)):
+            print("Connected to " + ip)
+        else:
+            print("Failed to connected to " + ip)
+    time.sleep(60)
+    
