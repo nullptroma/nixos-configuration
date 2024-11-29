@@ -17,6 +17,7 @@
     timedate.enable = true;
     users.enable = true;
     zram.enable = true;
+    qtThemeUnstable.enable = true;
 
     services = {
       adb-wifid.enable = true;
@@ -33,7 +34,6 @@
       systemPackages.enable = true;
       java.enable = true;
       hyprland.enable = true;
-      qtct.enable = false;
     };
 
     virtualisation = {

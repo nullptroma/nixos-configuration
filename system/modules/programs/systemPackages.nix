@@ -54,7 +54,10 @@ in {
       android-tools
 
       # GUI utils
-      kdiskmark    
+      kdiskmark  
+      kdePackages.plasma-workspace  
+      kdePackages.knewstuff
+      kdePackages.kdeclarative
 
       # Xorg stuff
       xsettingsd

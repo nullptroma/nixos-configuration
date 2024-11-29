@@ -33,6 +33,7 @@ in
 
       # additional packages to add to gjs's runtime
       extraPackages = with pkgs; [
+        
         gtksourceview
         gtksourceview4
         ollama

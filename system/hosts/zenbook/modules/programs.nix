@@ -15,6 +15,7 @@ in
         enable = true;
       };
       direnv.enable = true;
+      seahorse.enable = true;
     };
   };
 }

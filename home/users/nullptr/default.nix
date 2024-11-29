@@ -16,6 +16,7 @@ in {
     gnomeControlCenter.enable = true;
     mimelist.enable = true;
     stylix.enable = false;
+    secretServices.enable = true;
 
     user = {
       packages.enable = true;

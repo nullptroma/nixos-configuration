@@ -241,22 +241,6 @@
         "type": "github"
       }
     },
-    "more-waita": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1732280271,
-        "narHash": "sha256-xZ3dR8BR8Q+2IvDHZpM25HRIkynL2EbLLT2PeG90uN0=",
-        "owner": "somepaulo",
-        "repo": "MoreWaita",
-        "rev": "9eade07316eed8a338c56d7850df48a4836a2600",
-        "type": "github"
-      },
-      "original": {
-        "owner": "somepaulo",
-        "repo": "MoreWaita",
-        "type": "github"
-      }
-    },
     "nix-flatpak": {
       "locked": {
         "lastModified": 1732304879,
@@ -357,7 +341,6 @@
         "ags": "ags",
         "anyrun": "anyrun",
         "home-manager": "home-manager",
-        "more-waita": "more-waita",
         "nix-flatpak": "nix-flatpak",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-master": "nixpkgs-master",

@@ -10,7 +10,7 @@ let
 in
 {
   python312 = unstable.python312;
-  #telegram-desktop = unstable.telegram-desktop;
+  telegram-desktop = unstable.telegram-desktop;
 
   #xdg-desktop-portal-gkt = unstable.xdg-desktop-portal-gtk;
   #xdg-desktop-portal-hyprland = unstable.xdg-desktop-portal-hyprland;
