@@ -28,16 +28,17 @@ in
       fastfetch
 
       # desktop
-      vivaldi
+      kdePackages.kate
+      kdePackages.okular
+      qbittorrent
+      teams-for-linux
+      blueberry
       android-studio
       godot_4
-      telegram-desktop
       obs-studio
       mpv
       discord
       onlyoffice-bin
-      qbittorrent
-      blueberry
       github-desktop
       yad
       gnome.nautilus
@@ -45,7 +46,6 @@ in
       gnome.dconf-editor
       vscode
       nekoray
-      #zed-editor
 
       # tools
       acpi
@@ -61,8 +61,6 @@ in
       # theming tools
       gradience
 
-      # hyprland
-      # brightnessctl
       cliphist
       fuzzel
       grim

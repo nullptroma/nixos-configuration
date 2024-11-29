@@ -4,6 +4,8 @@ final: prev:
       (oldAttrs: {
         dontWrapQtApps = false;
         dontPatchELF = true;
+        proprietaryCodecs = true;
+        enableWidevine = true;
         nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [final.kdePackages.wrapQtAppsHook];
       });
 }

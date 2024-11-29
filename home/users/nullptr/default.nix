@@ -15,10 +15,12 @@ in {
     dunst.enable = true;
     gnomeControlCenter.enable = true;
     mimelist.enable = true;
+    stylix.enable = false;
 
     user = {
       packages.enable = true;
       theme.enable = true;
+      hyprland.enable = true;
     };
   };
 }

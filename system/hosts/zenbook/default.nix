@@ -5,10 +5,9 @@
 {
   # Import hosts.zenbook modules
   imports = [ ./modules ];
-  nixpkgs.config.allowUnfree = true;
+
   module = {
     boot.enable = true;
-    develop.enable = true;
     environment.enable = true;
     fonts.enable = true;
     groups.enable = true;
@@ -30,11 +29,11 @@
 
     programs = {
       xdgPortal.enable = true;
-      flatpak.enable = true;
-      hyprland.enable = true;
       python.enable = true;
       systemPackages.enable = true;
       java.enable = true;
+      hyprland.enable = true;
+      qtct.enable = false;
     };
 
     virtualisation = {
@@ -48,7 +47,10 @@
       kernel.enable = true;
       bluetooth.enable = true;
       fix-brightnessd.enable = true;
-      programs.simple.enable = true;
+      programs = {
+        simple.enable = true;
+        flatpak.enable = true;
+      };
     };
   };
 }

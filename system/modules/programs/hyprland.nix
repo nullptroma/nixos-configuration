@@ -12,6 +12,7 @@ let
 in {
   options = {
     module.programs.hyprland.enable = mkEnableOption "Enable hyprland";
+    module.programs.hyprland.fixedDesktop.enable = mkEnableOption "Enable hyprland desktop file";
   };
 
   config = mkIf cfg.enable {

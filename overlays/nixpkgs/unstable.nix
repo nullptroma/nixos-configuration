@@ -10,15 +10,11 @@ let
 in
 {
   python312 = unstable.python312;
-  telegram-desktop = unstable.telegram-desktop;
-  #zed-editor = unstable.zed-editor;
+  #telegram-desktop = unstable.telegram-desktop;
 
-  xdg-desktop-portal-gkt = unstable.xdg-desktop-portal-gtk;
-  xdg-desktop-portal-hyprland = unstable.xdg-desktop-portal-hyprland;
+  #xdg-desktop-portal-gkt = unstable.xdg-desktop-portal-gtk;
+  #xdg-desktop-portal-hyprland = unstable.xdg-desktop-portal-hyprland;
 
   android-studio = unstable.android-studio;
-  yandex-browser = unstable.yandex-browser;
-  linuxPackages_testing = unstable.linuxPackages_testing;
-  vivaldi = unstable.vivaldi;
   qbittorrent = unstable.qbittorrent;
 }

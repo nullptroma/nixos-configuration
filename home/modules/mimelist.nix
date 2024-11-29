@@ -6,7 +6,7 @@
 with lib;
 let 
   cfg = config.module.home.mimelist;
-  browser = "firefox.desktop";
+  browser = "vivaldi-stable.desktop";
   editor = "code.desktop";
   file-manager = "org.gnome.Nautilus.desktop";
   image-viewer = "org.gnome.Loupe.desktop";

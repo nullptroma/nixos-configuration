@@ -20,8 +20,8 @@ in
   config = mkIf cfg.enable {
     # Extra drivers settings
     hardware = {
-      enableAllFirmware = true;
-      #enableRedistributableFirmware = true;
+      #enableAllFirmware = true;
+      enableRedistributableFirmware = true;
       cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
       brillo.enable = true;
       firmware = with pkgs; [

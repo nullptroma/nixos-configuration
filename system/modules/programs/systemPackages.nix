@@ -17,9 +17,9 @@ in {
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       # Desktop apps
+      telegram-desktop
       kdePackages.partitionmanager
       jstest-gtk
-      kdenlive
       gparted
       kitty
       firefox
@@ -28,7 +28,6 @@ in {
       # Coding stuff
       gnumake
       gcc
-
 
       # CLI utils
       lshw
@@ -48,8 +47,6 @@ in {
       brightnessctl
       swww
       openssl
-      bluez
-      bluez-tools
       inxi
       killall
       bc

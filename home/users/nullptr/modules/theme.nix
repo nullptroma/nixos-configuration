@@ -60,15 +60,19 @@ in
         google-fonts
         moreWaita
         bibata-cursors
-        # morewaita-icon-theme
-        # papirus-icon-theme
-        # qogir-icon-theme
-        # whitesur-icon-theme
-        # colloid-icon-theme
-        # qogir-theme
-        # yaru-theme
-        # whitesur-gtk-theme
-        # orchis-theme
+        morewaita-icon-theme
+        papirus-icon-theme
+        qogir-icon-theme
+        whitesur-icon-theme
+        colloid-icon-theme
+        qogir-theme
+        yaru-theme
+        whitesur-gtk-theme
+        orchis-theme
+        gnome.adwaita-icon-theme
+        icon-library
+        libappindicator-gtk3
+        libappindicator
       ];
       sessionVariables = {
         XCURSOR_THEME = cursor-theme;
@@ -123,9 +127,9 @@ in
       '';
     };
 
-    qt = {
-      enable = true;
-      platformTheme.name = "kde";
-    };
+    # qt = {
+    #   enable = true;
+    #   platformTheme.name = "qt6ct";
+    # };
   };
 }
