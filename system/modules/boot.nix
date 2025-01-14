@@ -14,7 +14,10 @@ in {
 
   config = mkIf cfg.enable {
     boot.loader = {
-      systemd-boot.enable = true;
+      systemd-boot = {
+        enable = true;
+        rebootForBitlocker = true;
+      };
       efi.canTouchEfiVariables = true;
     };
   };

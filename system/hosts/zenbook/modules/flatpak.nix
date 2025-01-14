@@ -24,6 +24,7 @@ in {
         "com.github.tchx84.Flatseal"
         "org.gaphor.Gaphor"
         "com.vivaldi.Vivaldi"
+        "com.jgraph.drawio.desktop"
       ];
       overrides = {
         "org.gaphor.Gaphor" = {

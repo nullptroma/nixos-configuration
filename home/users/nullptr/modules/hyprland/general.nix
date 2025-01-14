@@ -1,6 +1,8 @@
 {
-  monitor = "eDP-1,highres,0x0,1.666667";
-
+  monitor = [
+    "eDP-1,highres,0x0,1.666667"
+    "HDMI-A-1,highres,auto,1,mirror,eDP-1"
+  ];
   xwayland.force_zero_scaling = true;
 
   input = {
@@ -81,11 +83,11 @@
     };
 
     # Shadow
-    drop_shadow = true;
-    shadow_ignore_window = true;
-    shadow_range = 20;
-    shadow_offset = "0 2";
-    shadow_render_power = 4;
+    shadow = {
+      range = 20;
+      offset = "0 2";
+      render_power = 4;
+    };
     #col.shadow = "rgba(0000002A)";
 
     # Shader

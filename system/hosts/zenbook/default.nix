@@ -1,5 +1,6 @@
 { config
 , lib
+, gnomeEnable
 , ...
 }:
 {
@@ -25,6 +26,7 @@
       gnomePolkit.enable = true;
       greetd.enable = true;
       kde6.enable = true;
+      gnome.enable = gnomeEnable;
       xserver.enable = false;
     };
 

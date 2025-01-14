@@ -60,7 +60,7 @@ in
         yaru-theme
         whitesur-gtk-theme
         orchis-theme
-        gnome.adwaita-icon-theme
+        adwaita-icon-theme
         icon-library
         libappindicator-gtk3
         libappindicator

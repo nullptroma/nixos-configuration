@@ -26,6 +26,7 @@ in {
       xdg-user-dirs
 
       # Coding stuff
+      dotnet-sdk
       gnumake
       gcc
 
@@ -55,6 +56,7 @@ in {
 
       # GUI utils
       kdiskmark  
+      kdePackages.filelight
       kdePackages.plasma-workspace  
       kdePackages.knewstuff
       kdePackages.kdeclarative

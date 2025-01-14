@@ -14,6 +14,7 @@ let
     , stateVersion ? "24.05"
     , platform ? "x86_64-linux" 
     , hostname ? machineDir
+    , gnomeEnable ? false
     }:
     inputs.nixpkgs.lib.nixosSystem {
       specialArgs = {
@@ -25,7 +26,8 @@ let
           groupsSet
           stateVersion
           platform
-          machineDir;
+          machineDir
+          gnomeEnable;
       };
 
       modules = [

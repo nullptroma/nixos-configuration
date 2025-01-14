@@ -14,7 +14,12 @@ in
       fsType = "xfs";
     };
 
-    boot.initrd.luks.devices."luks-e8db7ed8-da94-46a3-8e30-f773ed4e561c".device = "/dev/disk/by-uuid/e8db7ed8-da94-46a3-8e30-f773ed4e561c";
+    boot.initrd = {
+      luks.devices."luks-e8db7ed8-da94-46a3-8e30-f773ed4e561c" = {
+        device = "/dev/disk/by-uuid/e8db7ed8-da94-46a3-8e30-f773ed4e561c";
+        allowDiscards = true;
+      };
+    };
 
     fileSystems."/boot" = { 
       device = "/dev/disk/by-uuid/C4B5-6B41";

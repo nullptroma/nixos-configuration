@@ -4,6 +4,7 @@
 , platform ? null
 , stateVersion ? null
 , machineDir
+, gnomeEnable
 , pkgs
 , ...
 }:

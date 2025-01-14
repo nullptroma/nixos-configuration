@@ -14,7 +14,6 @@ in {
 
   config = mkIf cfg.enable {
     hardware.pulseaudio.enable = false;
-    sound.enable = true;
 
     security.rtkit.enable = true;
     services.pipewire = {

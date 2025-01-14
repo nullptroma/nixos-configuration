@@ -10,18 +10,17 @@ in {
   imports = [ ./modules/default.nix ];
 
   module.home = {
-    ags.enable = true;
-    anyrun.enable = true;
+    ags.enable = hyprlandEnable;
+    anyrun.enable = hyprlandEnable;
     dunst.enable = true;
     gnomeControlCenter.enable = true;
     mimelist.enable = true;
-    stylix.enable = false;
     secretServices.enable = true;
 
     user = {
       packages.enable = true;
       theme.enable = true;
-      hyprland.enable = true;
+      hyprland.enable = hyprlandEnable;
     };
   };
 }

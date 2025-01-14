@@ -79,7 +79,7 @@
 
     # pavucontrol
     "float, class:^(pavucontrol)$"
-    "size 800 600, class:^(pavucontrol)$"
+    "size 1200 800, class:^(pavucontrol)$"
 
     # Godot
     "stayfocused, title:^(Create New Node)$"

@@ -28,8 +28,9 @@ in
       fastfetch
 
       # desktop
-      kdePackages.kate
-      kdePackages.okular
+      skypeforlinux
+      haruna
+      jetbrains.rider
       qbittorrent
       teams-for-linux
       blueberry
@@ -41,9 +42,9 @@ in
       onlyoffice-bin
       github-desktop
       yad
-      gnome.nautilus
-      gnome.gnome-control-center
-      gnome.dconf-editor
+      nautilus
+      gnome-control-center
+      dconf-editor
       vscode
       nekoray
 
