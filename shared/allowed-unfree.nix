@@ -1,20 +1,19 @@
-{ pkgs, lib, ... }:
+{ lib, ... }:
 {
   android_sdk.accept_license = true;
-  allowUnfreePredicate = pkg: 
-    (builtins.elem (
-      lib.getName pkg
-    ) (
-      map lib.getName (with pkgs; [
-        discord
-        vscode
-        vivaldi
-        jetbrains.rider
-        skypeforlinux
-      ])
-    )) || 
-    (builtins.any (x: lib.strings.hasPrefix x (lib.getName pkg)) [
-      "steam"
-      "android-studio"
-    ]);
+  allowUnfreePredicate = pkg:
+    let
+      name = lib.getName pkg;
+      exact = [
+        "discord"
+        "vscode"
+        "jetbrains.rider"
+        "onlyoffice-bin"
+      ];
+      prefixes = [
+        "steam"
+        "android-studio"
+      ];
+    in
+    (builtins.elem name exact) || (builtins.any (p: lib.strings.hasPrefix p name) prefixes);
 }

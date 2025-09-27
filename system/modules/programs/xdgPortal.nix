@@ -1,7 +1,6 @@
 { pkgs
 , lib
 , config
-, wm
 , ...
 }:
 
@@ -15,7 +14,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    xdg.icons.enable = true;
     xdg.portal = {
       enable = true;
       xdgOpenUsePortal = true;
@@ -23,8 +21,6 @@ in {
       config = {
         common = {
           default = "*";
-#          "org.freedesktop.impl.portal.Screencast" = wm;
-#          "org.freedesktop.impl.portal.Screenshot" = wm;
         };
       };
 

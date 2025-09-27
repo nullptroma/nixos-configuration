@@ -15,9 +15,8 @@ in {
 
   config = mkIf cfg.enable {
     security.pam.services.greetd = {
-      enableGnomeKeyring = true;
-      #kwallet.enable = true;
-      #kwallet.package = pkgs.kdePackages.kwallet-pam;
+      kwallet.enable = true;
+      kwallet.package = pkgs.kdePackages.kwallet-pam;
     };
     services.greetd = {
       enable = true;

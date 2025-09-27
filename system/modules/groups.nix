@@ -9,9 +9,8 @@ with lib;
 let
   cfg = config.module.groups;
   mapGroup = name: 
-    { gid ? null }: {
-      gid = mkIf (gid!=null) gid;
-    };
+    { gid ? null }:
+      (optionalAttrs (gid != null) { inherit gid; });
 in {
   options = {
     module.groups.enable = mkEnableOption "Enable groups";

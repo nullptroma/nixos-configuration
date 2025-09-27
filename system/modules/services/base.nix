@@ -17,7 +17,6 @@ in {
       upower.enable = true;
       gvfs.enable = true;
       fstrim.enable = true;
-      timesyncd.enable = true;
     };
   };
 }

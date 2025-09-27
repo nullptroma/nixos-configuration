@@ -10,12 +10,7 @@ in
 
   config = mkIf cfg.enable {
     programs = with pkgs; {
-      dconf.enable = true;
-      steam = {
-        enable = true;
-      };
-      direnv.enable = true;
-      seahorse.enable = true;
+      steam.enable = true;
     };
   };
 }

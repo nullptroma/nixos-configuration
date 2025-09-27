@@ -23,7 +23,6 @@ in {
       packages = [
         "com.github.tchx84.Flatseal"
         "org.gaphor.Gaphor"
-        "ru.yandex.Browser"
       ];
       overrides = {
         "org.gaphor.Gaphor" = {

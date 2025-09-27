@@ -1,10 +1,9 @@
 { config
 , lib
-, gnomeEnable
 , ...
 }:
 {
-  # Import hosts.zenbook modules
+  # Import hosts.mini-server modules
   imports = [ ./modules ];
 
   module = {
@@ -18,15 +17,12 @@
     timedate.enable = true;
     users.enable = true;
     zram.enable = true;
-    qtThemeUnstable.enable = true;
 
     services = {
       adb-wifid.enable = true;
       base.enable = true;
-      gnomePolkit.enable = true;
       greetd.enable = true;
       kde6.enable = true;
-      gnome.enable = gnomeEnable;
       xserver.enable = false;
     };
 
@@ -35,7 +31,6 @@
       python.enable = true;
       systemPackages.enable = true;
       java.enable = true;
-      hyprland.enable = true;
     };
 
     virtualisation = {
@@ -44,11 +39,10 @@
     };
 
     host = {
-      disks.enable = true;
+      #disks.enable = true;
       extraHardware.enable = true;
       kernel.enable = true;
       bluetooth.enable = true;
-      fix-brightnessd.enable = true;
       programs = {
         simple.enable = true;
         flatpak.enable = true;

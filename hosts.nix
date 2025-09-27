@@ -1,8 +1,8 @@
 {
   nixos = {
-    zenbook = {
+    mini-server = {
       platform = "x86_64-linux";
-      stateVersion = "24.05";
+      stateVersion = "25.05";
       usersSet = {
         nullptr = {
           isNormalUser = true;
@@ -10,11 +10,9 @@
           extraGroups = [ "video" "networkmanager" "wheel" "input" "libvirtd" "i2c" "adbusers" ];
           home-manager = {
             enable = true;
-            hyprlandEnable = true;
           };
         };
       };
-      gnomeEnable = true;
     };
   };
 }

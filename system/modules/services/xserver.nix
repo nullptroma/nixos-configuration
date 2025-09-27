@@ -17,7 +17,7 @@ in {
     services.xserver.enable = true;
     services.xserver.videoDrivers = [ "amdgpu" ];
     services.xserver.displayManager.lightdm.enable = false;
-    hardware.opengl.extraPackages = with pkgs; [
+    hardware.graphics.extraPackages = with pkgs; [
       amdvlk
     ];
   };

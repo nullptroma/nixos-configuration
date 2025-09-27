@@ -17,8 +17,9 @@ in {
     programs.adb.enable = true;
     systemd.services = {
       adb-wifid = {
-        after = [ "network.target" ];
-        wantedBy = [ "default.target" ];
+        after = [ "network-online.target" ];
+        wants = [ "network-online.target" ];
+        wantedBy = [ "multi-user.target" ];
         description = "Automatic scan network for adb devices";
         serviceConfig = {
           Restart = "always";

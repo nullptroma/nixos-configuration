@@ -14,12 +14,15 @@ let
     , description ? null
     , group ? null
     , ...
-    }: {
-      group = mkIf (group!=null) group;
-      description = mkIf (description!=null) description;
-      isSystemUser = !isNormalUser;
-      inherit isNormalUser extraGroups;
-    };
+    }:
+    (
+      {
+        isSystemUser = !isNormalUser;
+        inherit isNormalUser extraGroups;
+      }
+      // (optionalAttrs (group != null) { inherit group; })
+      // (optionalAttrs (description != null) { inherit description; })
+    );
 in {
   options = {
     module.users.enable = mkEnableOption "Enable users";

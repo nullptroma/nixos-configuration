@@ -68,14 +68,9 @@ in {
 
       # Wayland stuff
       xwayland
-      wl-clipboard
-      cliphist
 
       # WMs and stuff
-      hypridle
-      hyprlock
       seatd
-      waybar
 
       # Sound
       pipewire

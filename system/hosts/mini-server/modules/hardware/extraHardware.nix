@@ -10,7 +10,7 @@ let
 in
 {
   options = {
-    module.host.extraHardware.enable = mkEnableOption "Enable ZenBook extra-hardware";
+    module.host.extraHardware.enable = mkEnableOption "Enable mini-server extra-hardware";
   };
 
   # imports = [ 

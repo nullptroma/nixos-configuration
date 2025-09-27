@@ -4,7 +4,6 @@
 , platform ? null
 , stateVersion ? null
 , machineDir
-, gnomeEnable
 , pkgs
 , ...
 }:
@@ -16,8 +15,8 @@ in
 { 
   imports = [
     inputs.home-manager.nixosModules.home-manager
-    "${self}/overlays/nixpkgs"
-    "${systemModules}"
+    (self + /overlays/nixpkgs)
+    systemModules
   ]
   ++ lib.optional hostConfigurationPathExist hostConfigurationPath;
   
@@ -27,10 +26,12 @@ in
   system = { inherit stateVersion; };
   nixpkgs = {
     hostPlatform = platform;
-    config = {
-      inherit (pkgs.callPackage "${self}/shared/allowed-unfree.nix" { }) allowUnfreePredicate android_sdk;
-      inherit (pkgs.callPackage "${self}/shared/allowed-insecure.nix" { }) allowInsecurePredicate;
-    };
+    config =
+      let
+        unfreeCfg = import "${self}/shared/allowed-unfree.nix" { inherit lib; };
+        insecureCfg = import "${self}/shared/allowed-insecure.nix" { inherit lib; };
+      in
+        unfreeCfg // insecureCfg;
   };
 }
 

@@ -16,12 +16,10 @@ in {
   config = mkIf cfg.enable {
     environment.variables = {
       EDITOR = "nano";
-      GSETTINGS_BACKEND = "keyfile";
     };
     environment.sessionVariables = {
-      XDG_DATA_DIRS = [ (pkgs.glib.getSchemaDataDirPath pkgs.gsettings-desktop-schemas) ];
+#      XDG_DATA_DIRS = [ (pkgs.glib.getSchemaDataDirPath pkgs.gsettings-desktop-schemas) ];
       NIXOS_OZONE_WL = "1";
-      DOTNET_ROOT = "${pkgs.dotnet-sdk.unwrapped}/share/dotnet/";
     };
   };
 }

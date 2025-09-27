@@ -53,7 +53,7 @@ in {
         };
 
         imports = [
-          "${homeModules}"
+          homeModules
         ] ++ lib.optional userConfigurationPathExist userConfigurationPath;
 
         config.home = {

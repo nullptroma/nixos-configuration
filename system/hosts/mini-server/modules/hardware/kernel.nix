@@ -9,7 +9,7 @@ let
 in
 {
   options = {
-    module.host.kernel.enable = mkEnableOption "Enable ZenBook kernel";
+    module.host.kernel.enable = mkEnableOption "Enable mini-server kernel";
   };
 
   config = mkIf cfg.enable {
