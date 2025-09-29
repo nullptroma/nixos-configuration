@@ -39,7 +39,7 @@
     };
 
     host = {
-      #disks.enable = true;
+      disks.enable = true;
       extraHardware.enable = true;
       kernel.enable = true;
       bluetooth.enable = true;

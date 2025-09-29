@@ -1,7 +1,6 @@
 { lib
 , pkgs
 , config
-, modulesPath
 , ...
 }:
 with lib;
@@ -12,10 +11,6 @@ in
   options = {
     module.host.extraHardware.enable = mkEnableOption "Enable mini-server extra-hardware";
   };
-
-  # imports = [ 
-  #   (modulesPath + "/installer/scan/not-detected.nix")
-  # ];
 
   config = mkIf cfg.enable {
     # Extra drivers settings
