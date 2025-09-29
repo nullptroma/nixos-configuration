@@ -1,10 +1,13 @@
-{ lib, ... }:
+{ pkgs, lib, ... }:
 {
-  allowInsecurePredicate = pkg:
-    let
-      name = lib.getName pkg;
-      exact = [ ];
-      prefixes = [ ];
-    in
-    (builtins.elem name exact) || (builtins.any (p: lib.strings.hasPrefix p name) prefixes);
+  allowInsecurePredicate = pkg: 
+    (builtins.elem (
+      lib.getName pkg
+    ) (
+      map lib.getName [
+      ]
+    )) || 
+    (builtins.any (x: lib.strings.hasPrefix x (lib.getName pkg)) [
+
+    ]);
 }
