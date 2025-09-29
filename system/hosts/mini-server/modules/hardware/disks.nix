@@ -5,11 +5,11 @@
 }:
 with lib;
 let
-  cfg = config.module.host.disks;
+  cfg = config.module.host.hardware.disks;
 in
 {
   options = {
-    module.host.disks.enable = mkEnableOption "Enable mini-server disks";
+    module.host.hardware.disks.enable = mkEnableOption "Enable mini-server disks";
   };
 
   config = mkIf cfg.enable {

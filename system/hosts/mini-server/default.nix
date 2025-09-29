@@ -27,7 +27,6 @@
     };
 
     programs = {
-      xdgPortal.enable = true;
       python.enable = true;
       systemPackages.enable = true;
       java.enable = true;
@@ -39,13 +38,16 @@
     };
 
     host = {
-      disks.enable = true;
-      extraHardware.enable = true;
-      kernel.enable = true;
-      bluetooth.enable = true;
       programs = {
         simple.enable = true;
         flatpak.enable = true;
+      };
+      hardware = {
+        disks.enable = true;
+        impermanence.enable = true;
+        extraHardware.enable = true;
+        kernel.enable = true;
+        bluetooth.enable = true;
       };
     };
   };

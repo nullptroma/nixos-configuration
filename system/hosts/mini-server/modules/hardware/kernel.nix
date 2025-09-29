@@ -5,11 +5,11 @@
 }:
 with lib;
 let
-  cfg = config.module.host.kernel;
+  cfg = config.module.host.hardware.kernel;
 in
 {
   options = {
-    module.host.kernel.enable = mkEnableOption "Enable mini-server kernel";
+    module.host.hardware.kernel.enable = mkEnableOption "Enable mini-server kernel";
   };
 
   config = mkIf cfg.enable {

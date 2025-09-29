@@ -19,9 +19,7 @@ in {
       # Desktop apps
       telegram-desktop
       kdePackages.partitionmanager
-      jstest-gtk
       gparted
-      kitty
       firefox
       xdg-user-dirs
 
@@ -56,15 +54,10 @@ in {
 
       # GUI utils
       kdiskmark  
-      kdePackages.filelight
-      kdePackages.plasma-workspace  
-      kdePackages.knewstuff
-      kdePackages.kdeclarative
 
       # Xorg stuff
       xsettingsd
       xorg.xrdb
-
 
       # Wayland stuff
       xwayland
@@ -79,7 +72,6 @@ in {
 
       # GPU stuff 
       amdvlk
-      glaxnimate
 
       # Other
       home-manager

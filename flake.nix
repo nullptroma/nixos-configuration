@@ -11,6 +11,8 @@
     };
 
     nix-flatpak.url = "github:gmodena/nix-flatpak";
+
+    impermanence.url = "github:nix-community/impermanence";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:

@@ -15,6 +15,7 @@ in
 { 
   imports = [
     inputs.home-manager.nixosModules.home-manager
+    inputs.impermanence.nixosModules.impermanence
     (self + /overlays/nixpkgs)
     systemModules
   ]

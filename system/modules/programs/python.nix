@@ -16,11 +16,8 @@ in {
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      (python312.withPackages (ps: with ps; [
-        requests
-        material-color-utilities
-        pywayland
-        materialyoucolor
+      (python313.withPackages (ps: with ps; [
+
       ]))
     ];
   };

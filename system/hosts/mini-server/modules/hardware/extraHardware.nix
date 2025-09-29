@@ -5,11 +5,11 @@
 }:
 with lib;
 let
-  cfg = config.module.host.extraHardware;
+  cfg = config.module.host.hardware.extraHardware;
 in
 {
   options = {
-    module.host.extraHardware.enable = mkEnableOption "Enable mini-server extra-hardware";
+    module.host.hardware.extraHardware.enable = mkEnableOption "Enable mini-server extra-hardware";
   };
 
   config = mkIf cfg.enable {
