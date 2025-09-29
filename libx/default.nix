@@ -11,7 +11,7 @@ let
   mkHost = machineDir:
     { usersSet ? { }
     , groupsSet ? { }
-    , stateVersion ? "25.05"
+    , stateVersion
     , platform ? "x86_64-linux" 
     , hostname ? machineDir
     }:
@@ -34,6 +34,6 @@ let
       ];
     };
 in {
-  genNixos  = builtins.mapAttrs mkHost;
+  genNixos = builtins.mapAttrs mkHost;
 }
 

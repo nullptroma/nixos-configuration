@@ -6,16 +6,11 @@
 , platform
 , usersSet
 , stateVersion
-, isWorkstation ? false
 , ...
 }:
 
 let
   homeModules = ./. + /modules;
-  # isRoot                     = username == "root";
-  # homeDirectory              = if isRoot then "/root" else "/home/${username}";
-  # userConfigurationPath      = ./. + /users/${username};
-  # userConfigurationPathExist = builtins.pathExists userConfigurationPath;
 in {
   home-manager = {
     useGlobalPkgs   = true;
@@ -29,9 +24,7 @@ in {
         hostname
         usersSet 
         platform 
-        stateVersion 
-        homeModules 
-        isWorkstation;
+        stateVersion;
     };
 
     users = builtins.mapAttrs (username: 

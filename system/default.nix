@@ -28,10 +28,9 @@ in
     hostPlatform = platform;
     config =
       let
-        unfreeCfg = import "${self}/shared/allowed-unfree.nix" { inherit lib; };
-        insecureCfg = import "${self}/shared/allowed-insecure.nix" { inherit lib; };
+        nixpkgs-config = import (self + /nixpkgs-config) { inherit lib; };
       in
-        unfreeCfg // insecureCfg;
+        nixpkgs-config.nixpkgsConfig;
   };
 }
 

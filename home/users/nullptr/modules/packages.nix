@@ -22,12 +22,11 @@ in
       # cli
       jq
       fastfetch
+      tree
 
       # desktop
       haruna
-      jetbrains.rider
       qbittorrent
-      godot_4
       obs-studio
       onlyoffice-bin
       vscode

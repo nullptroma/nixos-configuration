@@ -15,7 +15,7 @@
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
-      libx = import ./lib { inherit self inputs; };
+      libx = import ./libx { inherit self inputs; };
       hosts = import ./hosts.nix; 
     in {
 
