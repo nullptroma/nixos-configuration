@@ -1,14 +1,16 @@
-{ lib
-, config
-, inputs
-, ...
+{
+  lib,
+  config,
+  inputs,
+  ...
 }:
 
 with lib;
 
 let
   cfg = config.module.host.programs.flatpak;
-in {
+in
+{
   options = {
     module.host.programs.flatpak.enable = mkEnableOption "Enable flatpak applications";
   };

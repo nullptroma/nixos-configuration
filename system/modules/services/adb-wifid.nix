@@ -1,14 +1,16 @@
-{ lib
-, config
-, pkgs
-, ...
+{
+  lib,
+  config,
+  pkgs,
+  ...
 }:
 
 with lib;
 
 let
   cfg = config.module.services.adb-wifid;
-in {
+in
+{
   options = {
     module.services.adb-wifid.enable = mkEnableOption "Enable adb-wifid";
   };

@@ -1,19 +1,22 @@
-{ lib
-, config
-, usersSet
-, ...
+{
+  lib,
+  config,
+  usersSet,
+  ...
 }:
 
 with lib;
 
 let
   cfg = config.module.users;
-  mapUser = name: 
-    { isNormalUser
-    , extraGroups ? []
-    , description ? null
-    , group ? null
-    , ...
+  mapUser =
+    name:
+    {
+      isNormalUser,
+      extraGroups ? [ ],
+      description ? null,
+      group ? null,
+      ...
     }:
     (
       {
@@ -23,7 +26,8 @@ let
       // (optionalAttrs (group != null) { inherit group; })
       // (optionalAttrs (description != null) { inherit description; })
     );
-in {
+in
+{
   options = {
     module.users.enable = mkEnableOption "Enable users";
   };
@@ -32,4 +36,3 @@ in {
     users.users = builtins.mapAttrs mapUser usersSet;
   };
 }
-

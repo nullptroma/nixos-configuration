@@ -1,15 +1,17 @@
-{ lib
-, config
-, inputs
-, pkgs
-, ...
+{
+  lib,
+  config,
+  inputs,
+  pkgs,
+  ...
 }:
 
 with lib;
 
 let
   cfg = config.module.programs.systemPackages;
-in {
+in
+{
   options = {
     module.programs.systemPackages.enable = mkEnableOption "Enable systemwide packages";
   };
@@ -53,7 +55,7 @@ in {
       android-tools
 
       # GUI utils
-      kdiskmark  
+      kdiskmark
 
       # Xorg stuff
       xsettingsd
@@ -70,7 +72,7 @@ in {
       pulseaudio
       pamixer
 
-      # GPU stuff 
+      # GPU stuff
       amdvlk
 
       # Other
@@ -79,4 +81,4 @@ in {
       greetd.tuigreet
     ];
   };
-} 
+}

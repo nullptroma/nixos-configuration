@@ -1,4 +1,5 @@
-{ lib, 
+{
+  lib,
   ...
 }:
 {
@@ -6,4 +7,3 @@
     map (module: ./. + /${module}) (builtins.attrNames (builtins.readDir ./.))
   );
 }
-

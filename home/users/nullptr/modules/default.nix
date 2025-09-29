@@ -1,5 +1,6 @@
-{ lib
-, ... 
+{
+  lib,
+  ...
 }:
 {
   imports = builtins.filter (module: module != (./. + /default.nix)) (

@@ -1,14 +1,16 @@
-{ lib
-, config
-, hostname
-, ...
+{
+  lib,
+  config,
+  hostname,
+  ...
 }:
 
 with lib;
 
 let
   cfg = config.module.zram;
-in {
+in
+{
   options = {
     module.zram.enable = mkEnableOption "Enable ZRAM";
   };

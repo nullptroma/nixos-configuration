@@ -7,7 +7,15 @@
         nullptr = {
           isNormalUser = true;
           description = "Roman";
-          extraGroups = [ "video" "networkmanager" "wheel" "input" "libvirtd" "i2c" "adbusers" ];
+          extraGroups = [
+            "video"
+            "networkmanager"
+            "wheel"
+            "input"
+            "libvirtd"
+            "i2c"
+            "adbusers"
+          ];
           home-manager = {
             enable = true;
           };
@@ -16,4 +24,3 @@
     };
   };
 }
-

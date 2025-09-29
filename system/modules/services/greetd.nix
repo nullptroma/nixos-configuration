@@ -1,14 +1,16 @@
-{ lib
-, config
-, pkgs
-, ...
+{
+  lib,
+  config,
+  pkgs,
+  ...
 }:
 
 with lib;
 
 let
   cfg = config.module.services.greetd;
-in {
+in
+{
   options = {
     module.services.greetd.enable = mkEnableOption "Enable greetd (tuigreet)";
   };
@@ -29,5 +31,3 @@ in {
     };
   };
 }
-
-

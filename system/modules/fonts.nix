@@ -1,14 +1,16 @@
-{ lib
-, config
-, pkgs
-, ...
+{
+  lib,
+  config,
+  pkgs,
+  ...
 }:
 
 with lib;
 
 let
   cfg = config.module.fonts;
-in {
+in
+{
   options = {
     module.fonts.enable = mkEnableOption "Enable fonts packages";
   };

@@ -1,10 +1,12 @@
-{ usersSet
-, lib
-, ...
+{
+  usersSet,
+  lib,
+  ...
 }:
 let
   user = usersSet.nullptr;
-in {
+in
+{
   # Import users.nullptr modules
   imports = [ ./modules/default.nix ];
 

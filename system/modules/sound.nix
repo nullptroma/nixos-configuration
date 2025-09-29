@@ -1,13 +1,15 @@
-{ lib
-, config
-, ...
+{
+  lib,
+  config,
+  ...
 }:
 
 with lib;
 
 let
   cfg = config.module.sound;
-in {
+in
+{
   options = {
     module.sound.enable = mkEnableOption "Enable sound";
   };

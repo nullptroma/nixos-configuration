@@ -1,14 +1,16 @@
-{ lib
-, config
-, pkgs
-, ...
+{
+  lib,
+  config,
+  pkgs,
+  ...
 }:
 
 with lib;
 
 let
   cfg = config.module.services.xserver;
-in {
+in
+{
   options = {
     module.services.xserver.enable = mkEnableOption "Enable xserver service";
   };

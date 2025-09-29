@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
-    
+
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -15,12 +15,19 @@
     impermanence.url = "github:nix-community/impermanence";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }@inputs:
     let
       libx = import ./libx { inherit self inputs; };
-      hosts = import ./hosts.nix; 
-    in {
+      hosts = import ./hosts.nix;
+    in
+    {
 
-    nixosConfigurations = libx.genNixos hosts.nixos;
-  };
+      nixosConfigurations = libx.genNixos hosts.nixos;
+    };
 }

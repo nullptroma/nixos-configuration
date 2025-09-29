@@ -1,14 +1,16 @@
-{ lib
-, config
-, usersSet
-, ...
+{
+  lib,
+  config,
+  usersSet,
+  ...
 }:
 
 with lib;
 
 let
   cfg = config.module.virtualisation;
-in {
+in
+{
   options = {
     module.virtualisation.enable = mkEnableOption "Enable virtualisation";
     module.virtualisation.waydroid.enable = mkEnableOption "Enable waydroid";
@@ -18,4 +20,3 @@ in {
     virtualisation.waydroid.enable = cfg.waydroid.enable;
   };
 }
-

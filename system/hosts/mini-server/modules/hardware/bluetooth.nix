@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 with lib;
 let
   cfg = config.module.host.hardware.bluetooth;
@@ -20,7 +25,7 @@ in
           KernelExperimental = true;
         };
         Policy = {
-          AutoEnable=true;
+          AutoEnable = true;
         };
       };
     };

@@ -1,13 +1,15 @@
-{ lib
-, config
-, ...
+{
+  lib,
+  config,
+  ...
 }:
 
 with lib;
 
 let
   cfg = config.module.boot;
-in {
+in
+{
   options = {
     module.boot.enable = mkEnableOption "Enable Bootloader";
   };
@@ -22,4 +24,3 @@ in {
     };
   };
 }
-

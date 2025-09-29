@@ -1,15 +1,17 @@
-{ lib
-, config
-, inputs
-, pkgs
-, ...
+{
+  lib,
+  config,
+  inputs,
+  pkgs,
+  ...
 }:
 
 with lib;
 
 let
   cfg = config.module.programs.java;
-in {
+in
+{
   options = {
     module.programs.java.enable = mkEnableOption "Enable Java";
   };

@@ -1,11 +1,12 @@
-{ pkgs
-, lib
-, config
-, usersSet
-, ... 
+{
+  pkgs,
+  lib,
+  config,
+  usersSet,
+  ...
 }:
 with lib;
-let 
+let
   cfg = config.module.home.user.packages;
   username = config.module.home.username;
   user = usersSet.${username};

@@ -1,7 +1,8 @@
-{ pkgs
-, lib
-, config
-, ...
+{
+  pkgs,
+  lib,
+  config,
+  ...
 }:
 with lib;
 let
@@ -23,8 +24,7 @@ in
         #kernelModules = [ "amdgpu" ];
       };
 
-      extraModprobeConfig = ''
-      '';
+      extraModprobeConfig = '''';
     };
   };
 }

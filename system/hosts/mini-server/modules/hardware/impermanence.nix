@@ -1,7 +1,8 @@
-{ pkgs
-, lib
-, config
-, ...
+{
+  pkgs,
+  lib,
+  config,
+  ...
 }:
 with lib;
 let
@@ -17,7 +18,7 @@ in
 
   config = mkIf cfg.enable {
     #  Reset root subvolume on boot
-  boot.initrd.postResumeCommands = lib.mkAfter ''
+    boot.initrd.postResumeCommands = lib.mkAfter ''
       mkdir /btrfs_tmp
       mount /dev/disk/by-uuid/5f88ca43-3895-4361-9132-b1885181a7ce /btrfs_tmp
       if [[ -e /btrfs_tmp/root ]]; then

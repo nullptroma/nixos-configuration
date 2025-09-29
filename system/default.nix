@@ -1,18 +1,19 @@
-{ lib
-, inputs
-, self
-, platform ? null
-, stateVersion ? null
-, machineDir
-, pkgs
-, ...
+{
+  lib,
+  inputs,
+  self,
+  platform ? null,
+  stateVersion ? null,
+  machineDir,
+  pkgs,
+  ...
 }:
 let
   systemModules = ./. + /modules;
   hostConfigurationPath = ./. + /hosts/${machineDir};
   hostConfigurationPathExist = builtins.pathExists hostConfigurationPath;
 in
-{ 
+{
   imports = [
     inputs.home-manager.nixosModules.home-manager
     inputs.impermanence.nixosModules.impermanence
@@ -20,8 +21,11 @@ in
     systemModules
   ]
   ++ lib.optional hostConfigurationPathExist hostConfigurationPath;
-  
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # System version
   system = { inherit stateVersion; };
@@ -31,7 +35,6 @@ in
       let
         nixpkgs-config = import (self + /nixpkgs-config) { inherit lib; };
       in
-        nixpkgs-config.nixpkgsConfig;
+      nixpkgs-config.nixpkgsConfig;
   };
 }
-

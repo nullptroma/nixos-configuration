@@ -1,23 +1,26 @@
-{ self
-, inputs
-, ...
+{
+  self,
+  inputs,
+  ...
 }:
 
 let
-  homeConfiguration   = self + /home;
+  homeConfiguration = self + /home;
   systemConfiguration = self + /system;
 
   # Helper function for generating host configs
-  mkHost = machineDir:
-    { usersSet ? { }
-    , groupsSet ? { }
-    , stateVersion
-    , platform ? "x86_64-linux" 
-    , hostname ? machineDir
+  mkHost =
+    machineDir:
+    {
+      usersSet ? { },
+      groupsSet ? { },
+      stateVersion,
+      platform ? "x86_64-linux",
+      hostname ? machineDir,
     }:
     inputs.nixpkgs.lib.nixosSystem {
       specialArgs = {
-        inherit 
+        inherit
           inputs
           self
           hostname
@@ -25,7 +28,8 @@ let
           groupsSet
           stateVersion
           platform
-          machineDir;
+          machineDir
+          ;
       };
 
       modules = [
@@ -33,7 +37,7 @@ let
         homeConfiguration
       ];
     };
-in {
+in
+{
   genNixos = builtins.mapAttrs mkHost;
 }
-

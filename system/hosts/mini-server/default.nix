@@ -1,6 +1,7 @@
-{ config
-, lib
-, ...
+{
+  config,
+  lib,
+  ...
 }:
 {
   # Import hosts.mini-server modules
@@ -52,4 +53,3 @@
     };
   };
 }
-

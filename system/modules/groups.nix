@@ -1,17 +1,22 @@
-{ lib
-, config
-, groupsSet
-, ...
+{
+  lib,
+  config,
+  groupsSet,
+  ...
 }:
 
 with lib;
 
 let
   cfg = config.module.groups;
-  mapGroup = name: 
-    { gid ? null }:
-      (optionalAttrs (gid != null) { inherit gid; });
-in {
+  mapGroup =
+    name:
+    {
+      gid ? null,
+    }:
+    (optionalAttrs (gid != null) { inherit gid; });
+in
+{
   options = {
     module.groups.enable = mkEnableOption "Enable groups";
   };
@@ -20,4 +25,3 @@ in {
     users.groups = builtins.mapAttrs mapGroup groupsSet;
   };
 }
-
